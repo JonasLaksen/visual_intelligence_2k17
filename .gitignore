@@ -1,0 +1,9 @@
+.DS_Store
+udacity_agent_env/
+.idea/
+model.h5
+udacity-agent-env/
+*.pyc
+*.swp
+logs/
+IMG/
