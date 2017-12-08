@@ -16,7 +16,7 @@ csv_logger = CSVLogger(time.strftime("./logs/%m-%d-%H:%M:%S"), append=True, sepa
 import matplotlib as mpl
 mpl.use('TkAgg')
 import matplotlib.pyplot as plt
-epochs=50
+epochs=20
 
 
 def plot(y):
@@ -47,7 +47,7 @@ def generate_samples():
 X, y = generate_samples()
 
 model = Sequential([
-    GaussianNoise(0.5, input_shape=(50, 160, 3)),
+    GaussianNoise(0.9, input_shape=(50, 160, 3)),
     Conv2D(8, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
     BatchNormalization(),
