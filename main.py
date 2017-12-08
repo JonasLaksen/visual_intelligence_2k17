@@ -53,7 +53,7 @@ model = Sequential([
     MaxPooling2D(2),
     Conv2D(16, strides=2, kernel_size=2),#, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     # Dropout(.2),
-    Conv2D(16, strides=2, kernel_size=2),#, kernel_regularizer=regularizers.l2(.001), activation='elu'),
+    # Conv2D(16, strides=2, kernel_size=2),#, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     # Dropout(.2),
     Flatten( ),
     Dense(8, activation='elu'),#, kernel_regularizer=regularizers.l2(.001)),
