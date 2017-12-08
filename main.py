@@ -53,8 +53,8 @@ model = Sequential([
     Conv2D(32, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
     Flatten(),
-    Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
-    Dropout(.5),
+    # Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    # Dropout(.5),
     Dense(1)
 ])
 
