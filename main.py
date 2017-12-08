@@ -38,16 +38,16 @@ def generate_samples():
             if float(steering_angle)**2 > 0.02 or float(steering_angle)**2 + .02 > random.random():
                 X.append(preprocess_image(cv2.imread(center_image)))
                 y.append(float(steering_angle))
-            # if float(steering_angle)**2 > .02:
-            #     X.append(preprocess_image(cv2.imread(center_image), True))
-            #     y.append(-float(steering_angle))
+            if float(steering_angle)**2 > .02:
+                X.append(preprocess_image(cv2.imread(center_image), True))
+                y.append(-float(steering_angle))
 
     return np.asarray(X),np.asarray(y)
 
 X, y = generate_samples()
 
 model = Sequential([
-    GaussianNoise(0.9, input_shape=(50, 160, 3)),
+    GaussianNoise(0.9, input_shape=(50, 160, 1)),
     Conv2D(8, strides=3, kernel_size=3, activation='elu'),#, kernel_regularizer=regularizers.l2(.001)),
     # Dropout(.2),
     Conv2D(16, strides=3, kernel_size=3, activation='elu'),#, kernel_regularizer=regularizers.l2(.001)),
