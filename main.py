@@ -47,18 +47,21 @@ def generate_samples():
 X, y = generate_samples()
 
 model = Sequential([
-    # GaussianNoise(0.9, input_shape=(50, 160, 1)),
-    Conv2D(16, strides=3, kernel_size=3, activation='elu', input_shape=(50, 160, 3), kernel_regularizer=regularizers.l2(.001)),
+    GaussianNoise(0.9, input_shape=(50, 160, 3)),
+    Conv2D(8, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
-    Conv2D(32, strides=3, kernel_size=3, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    # BatchNormalization(),
+    MaxPooling2D(2),
+    Conv2D(16, strides=2, kernel_size=2, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
-    Conv2D(64, strides=3, kernel_size=3, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    # BatchNormalization(),
+    Conv2D(16, strides=2, kernel_size=2, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
+    # BatchNormalization(),
     Flatten( ),
-    Dense(256, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.5),
-    Dense(128, activation='elu', kernel_regularizer=regularizers.l2(.001)),
-    Dropout(.5),
+    # BatchNormalization(),
     Dense(1)
 ])
 
