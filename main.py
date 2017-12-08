@@ -15,7 +15,7 @@ csv_logger = CSVLogger(time.strftime("./logs/%m-%d-%H:%M:%S"), append=True, sepa
 import matplotlib as mpl
 mpl.use('TkAgg')
 import matplotlib.pyplot as plt
-epochs=100
+epochs=50
 
 
 def plot(y):
