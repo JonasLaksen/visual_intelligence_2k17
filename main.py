@@ -42,7 +42,7 @@ def generate_samples():
 X, y = generate_samples()
 
 model = Sequential([
-    Conv2D(16, strides=3, kernel_size=3, input_shape=(50, 160, 1), kernel_regularizer=regularizers.l2(.001)),
+    Conv2D(16, strides=2, kernel_size=3, input_shape=(50, 160, 1), kernel_regularizer=regularizers.l2(.001)),
     # Conv2D(36, strides=2, kernel_size=5, kernel_regularizer=regularizers.l2(.001)),
     # Dropout(.2),
     Conv2D(32, strides=2, kernel_size=2, kernel_regularizer=regularizers.l2(.001)),
