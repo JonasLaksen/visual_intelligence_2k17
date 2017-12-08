@@ -54,10 +54,10 @@ model = Sequential([
     # MaxPooling2D(2),
     # Conv2D(32, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     # Dropout(.2),
-    Flatten(),
+    Flatten( input_shape=(50, 160, 3)),
     # Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     # Dropout(.5),
-    Dense(16, activation='elu', input_shape=(50, 160, 3)),
+    Dense(16, activation='elu'),
     Dropout(.5),
     Dense(1)
 ])
