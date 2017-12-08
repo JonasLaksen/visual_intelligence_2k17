@@ -1,6 +1,7 @@
 import random
 
-from keras.layers import Conv2D, Dropout, MaxPooling2D, Flatten, Dense, Lambda, regularizers, GaussianNoise
+from keras.layers import Conv2D, Dropout, MaxPooling2D, Flatten, Dense, Lambda, regularizers, GaussianNoise, \
+    BatchNormalization
 from keras.models import Sequential, load_model
 from keras.optimizers import Adam
 import time
@@ -49,17 +50,24 @@ model = Sequential([
     GaussianNoise(0.5, input_shape=(50, 160, 3)),
     Conv2D(8, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
+    BatchNormalization(),
     MaxPooling2D(2),
     Conv2D(16, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
+    BatchNormalization(),
+    MaxPooling2D(2),
+    Conv2D(16, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
+    Dropout(.2),
+    BatchNormalization(),
     MaxPooling2D(2),
     # Conv2D(32, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     # Dropout(.2),
     Flatten( ),
     # Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     # Dropout(.5),
-    Dense(8, activation='elu'),
+    Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.5),
+    BatchNormalization(),
     Dense(1)
 ])
 
