@@ -58,8 +58,8 @@ model = Sequential([
     Flatten( ),
     Dense(32, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.5),
-    Dense(16, activation='elu', kernel_regularizer=regularizers.l2(.001)),
-    Dropout(.5),
+    # Dense(16, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    # Dropout(.5),
     Dense(1)
 ])
 
