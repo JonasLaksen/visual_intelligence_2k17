@@ -1,6 +1,6 @@
 import random
 
-from keras.layers import Conv2D, Dropout, MaxPooling2D, Flatten, Dense, Lambda, regularizers
+from keras.layers import Conv2D, Dropout, MaxPooling2D, Flatten, Dense, Lambda, regularizers, GaussianNoise
 from keras.models import Sequential, load_model
 from keras.optimizers import Adam
 import time
@@ -46,7 +46,8 @@ def generate_samples():
 X, y = generate_samples()
 
 model = Sequential([
-    Conv2D(8, strides=3, kernel_size=3, input_shape=(50, 160, 3), kernel_regularizer=regularizers.l2(.001), activation='elu'),
+    GaussianNoise(0.5, input_shape=(50, 160, 3)),
+    Conv2D(8, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
     MaxPooling2D(2),
     Conv2D(16, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
