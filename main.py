@@ -59,9 +59,9 @@ model = Sequential([
 model.compile(loss='mean_squared_error', optimizer=Adam())
 history = model.fit(X,y,batch_size=32,epochs=epochs,callbacks=[csv_logger], validation_split=0.1, verbose=2)
 
-plt.plot(range(2,epochs),history.history['loss'][2:], label='Training loss' )
-plt.plot( range(2,epochs), history.history['val_loss'][2:], label='Validation loss')
-plt.axis([2,epochs,0,max([max(history.history['loss'][2:]), max(history.history['val_loss'][2:])])])
+plt.plot(range(2,epochs-1),history.history['loss'][2:], label='Training loss' )
+plt.plot( range(2,epochs-1), history.history['val_loss'][2:], label='Validation loss')
+plt.axis([2,epochs-1,0,max([max(history.history['loss'][2:]), max(history.history['val_loss'][2:])])])
 plt.ticklabel_format(style='plain',axis='x',useOffset=False)
 plt.xlabel('Epoch')
 plt.legend()
