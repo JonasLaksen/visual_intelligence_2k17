@@ -55,7 +55,6 @@ model = Sequential([
     Conv2D(16, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
     BatchNormalization(),
-    MaxPooling2D(2),
     Conv2D(16, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
     BatchNormalization(),
