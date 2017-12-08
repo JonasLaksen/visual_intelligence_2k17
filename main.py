@@ -50,25 +50,18 @@ model = Sequential([
     GaussianNoise(0.9, input_shape=(50, 160, 3)),
     Conv2D(8, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     Dropout(.2),
-    # MaxPooling2D(2),
-    # Conv2D(16, strides=2, kernel_size=2, kernel_regularizer=regularizers.l2(.001), activation='elu'),
-    # Dropout(.2),
-    # Conv2D(16, strides=2, kernel_size=2),#, kernel_regularizer=regularizers.l2(.001), activation='elu'),
-    # Dropout(.2),
     Flatten( ),
     Dense(32, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.5),
-    # Dense(16, activation='elu', kernel_regularizer=regularizers.l2(.001)),
-    # Dropout(.5),
     Dense(1)
 ])
 
 model.compile(loss='mean_squared_error', optimizer=Adam())
 history = model.fit(X,y,batch_size=32,epochs=epochs,callbacks=[csv_logger], validation_split=0.1, verbose=2)
 
-plt.plot(range(epochs-1),history.history['loss'][1:], label='Training loss' )
-plt.plot( range(epochs-1), history.history['val_loss'][1:], label='Validation loss')
-plt.axis([0,epochs,0,max([max(history.history['loss'][1:]), max(history.history['val_loss'][1:])])])
+plt.plot(range(epochs-2),history.history['loss'][2:], label='Training loss' )
+plt.plot( range(epochs-2), history.history['val_loss'][2:], label='Validation loss')
+plt.axis([2,epochs-2,0,max([max(history.history['loss'][2:]), max(history.history['val_loss'][2:])])])
 plt.ticklabel_format(style='plain',axis='x',useOffset=False)
 plt.xlabel('Epoch')
 plt.legend()
