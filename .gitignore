@@ -3,6 +3,7 @@ udacity_agent_env/
 .idea/
 model.h5
 udacity-agent-env/
+env/
 *.pyc
 *.swp
 logs/
