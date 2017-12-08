@@ -47,7 +47,7 @@ X, y = generate_samples()
 
 model = Sequential([
     Conv2D(8, strides=2, kernel_size=2, input_shape=(160, 320, 3), kernel_regularizer=regularizers.l2(.001), activation='elu'),
-    # Conv2D(8, strides=3, kernel_size=5, kernel_regularizer=regularizers.l2(.001), activation='elu'),
+    Conv2D(8, strides=3, kernel_size=3, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     # Dropout(.2),
     # Conv2D(16, strides=2, kernel_size=2, kernel_regularizer=regularizers.l2(.001), activation='elu'),
     # Dropout(.2),
