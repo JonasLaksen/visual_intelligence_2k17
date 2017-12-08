@@ -50,8 +50,10 @@ model = Sequential([
     GaussianNoise(0.9, input_shape=(50, 160, 3)),
     Conv2D(8, strides=3, kernel_size=3, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.2),
+    Conv2D(16, strides=3, kernel_size=3, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    Dropout(.2),
     Flatten( ),
-    Dense(32, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    Dense(64, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.2),
     Dense(1)
 ])
