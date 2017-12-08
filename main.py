@@ -63,10 +63,10 @@ model = Sequential([
     Flatten( ),
     # Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     # Dropout(.5),
-    Dense(64, activation='elu', kernel_regularizer=regularizers.l2(.001)),
-    Dropout(.5),
-    BatchNormalization(),
-    Dense(32, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    # Dense(64, activation='elu', kernel_regularizer=regularizers.l2(.001)),
+    # Dropout(.5),
+    # BatchNormalization(),
+    Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     Dropout(.5),
     BatchNormalization(),
     Dense(1)
@@ -78,6 +78,7 @@ history = model.fit(X,y,batch_size=32,epochs=epochs,callbacks=[csv_logger], vali
 plt.plot(range(epochs),history.history['loss'], label='Training loss' )
 plt.plot( range(epochs), history.history['val_loss'], label='Validation loss')
 plt.axis([0,epochs,0,max([max(history.history['loss']), max(history.history['val_loss'])])])
+plt.ticklabel_format(style='plain',axis='x',useOffset=False)
 plt.xlabel('Epoch')
 plt.legend()
 plt.show()
