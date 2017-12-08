@@ -33,7 +33,7 @@ def generate_samples():
     with open('driving_log.csv') as csvfile:
         counter = 0
         for center_image,_,_,steering_angle,_,_, speed in csv.reader(csvfile):
-            if counter >6800: break
+            if counter >4000: break
             counter +=1
             # if float(steering_angle)**2 > 0.02 or float(steering_angle)**2 + .02 > random.random():
             X.append(preprocess_image(cv2.imread(center_image)))
