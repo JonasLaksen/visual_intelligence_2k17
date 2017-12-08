@@ -61,7 +61,7 @@ history = model.fit(X,y,batch_size=32,epochs=epochs,callbacks=[csv_logger], vali
 
 plt.plot(range(epochs-2),history.history['loss'][2:], label='Training loss' )
 plt.plot( range(epochs-2), history.history['val_loss'][2:], label='Validation loss')
-plt.axis([2,epochs-2,0,max([max(history.history['loss'][2:]), max(history.history['val_loss'][2:])])])
+plt.axis([2,epochs,0,max([max(history.history['loss'][2:]), max(history.history['val_loss'][2:])])])
 plt.ticklabel_format(style='plain',axis='x',useOffset=False)
 plt.xlabel('Epoch')
 plt.legend()
