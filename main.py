@@ -57,7 +57,7 @@ model = Sequential([
     # Dropout(.5),
     Flatten( input_shape=(160, 320, 3)),
     # Dense(32, activation='elu'),
-    # Dense(16, activation='elu'),
+    Dense(16, activation='elu'),
     Dense(8, activation='elu'),
     Dense(1)
 ])
