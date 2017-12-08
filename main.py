@@ -57,7 +57,7 @@ model = Sequential([
     Flatten(),
     # Dense(8, activation='elu', kernel_regularizer=regularizers.l2(.001)),
     # Dropout(.5),
-    Dense(16, activation='elu'),
+    Dense(16, activation='elu', input_shape=(50, 160, 3)),
     Dropout(.5),
     Dense(1)
 ])
