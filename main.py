@@ -59,6 +59,8 @@ model = Sequential([
     # Dropout(.5),
     Dense(16, activation='elu'),
     Dropout(.5),
+    Dense(8, activation='elu'),
+    Dropout(.5),
     Dense(1)
 ])
 
