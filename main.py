@@ -59,7 +59,6 @@ model = Sequential([
     Flatten(),
     # Dense(32, activation='elu'),
     Dense(16, activation='elu'),
-    Dense(8, activation='elu'),
     Dense(1)
 ])
 
